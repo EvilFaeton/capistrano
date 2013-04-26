@@ -65,11 +65,11 @@ namespace :deploy do
       CMD
 
       # Sync manifest filenames across servers if our manifest has a random filename
-      if shared_manifest_path =~ /manifest-.+\./
-        run <<-CMD.compact
-          [ -e #{shared_manifest_path.shellescape} ] || mv -- #{shared_path.shellescape}/#{shared_assets_prefix}/manifest*.json #{shared_manifest_path.shellescape}
-        CMD
-      end
+      #if shared_manifest_path =~ /manifest-.+\./
+      #  run <<-CMD.compact
+      #    [ -e #{shared_manifest_path.shellescape} ] || mv -- #{shared_path.shellescape}/#{shared_assets_prefix}/manifest* #{shared_manifest_path.shellescape}
+      #  CMD
+      #end
 
       # Copy manifest to release root (for clean_expired task)
       run <<-CMD.compact
